@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>contextawareadbreaks · Player</title>
+<link rel="stylesheet" href="/player/player.css">
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="/"><i></i><i></i><span class="wm"><span class="wm1">contextaware</span><span class="wm2">adbreaks</span></span></a>
+  <span class="meta">Hoichoi Hackathon · Problem 1</span>
+</header>
+
+<div class="switch"><nav>
+  <a href="/"><b>01</b> Upload an episode</a>
+  <a href="/watch" class="on"><b>02</b> Watch with ad breaks</a>
+</nav></div>
+
+<main>
+  <section class="stage">
+    <div class="epbar">
+      <h1>Watch with ad breaks</h1>
+      <label>Episode <select id="pick"></select></label>
+    </div>
+    <div class="screen" id="screen">
+      <video id="content" preload="metadata" playsinline></video>
+      <video id="ad" preload="auto" playsinline></video>
+      <div class="soon" id="soon">Ad break in <b id="soonN">5</b></div>
+      <div class="adbar" id="adbar">
+        <span class="adtag">Advertisement</span>
+        <span class="adname" id="adTitle"></span>
+        <span class="adleft" id="adLeft"></span>
+        <button id="skip" title="Only in the demo">Skip ad</button>
+      </div>
+      <div class="adwhy" id="adWhy"></div>
+      <div class="adprog" id="adprog"><div id="adfill"></div></div>
+    </div>
+
+    <div class="controls">
+      <button id="play" class="playbtn">▶ Play</button>
+      <span class="time" id="time">0:00 / 0:00</span>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="timeline" id="bar">
+      <div class="rail"><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="legend">
+      <span><i class="sw sw-ad"></i>Ad break (from the VMAP)</span>
+      <span><i class="sw sw-done"></i>Already played</span>
+      <span><i class="sw sw-sens"></i>Sensitive scene (unsafe brands blocked)</span>
+      <span>Click the bar to seek. Jumping over a break plays it first.</span>
+    </div>
+  </section>
+
+  <aside class="panel">
+    <h2>Now playing</h2>
+    <div id="scene" class="card"></div>
+    <h2>Next ad</h2>
+    <div id="next" class="card next"></div>
+    <h2>All ad breaks</h2>
+    <div id="breaks"></div>
+    <div id="jumps" hidden></div>
+    <div class="files" id="files"></div>
+  </aside>
+</main>
+<script src="/player/player.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+{
+  "about": "Checkpoint 9 (WHAT) settings. Brands come from config/brands.json; nothing here is about one brand or one video.",
+  "negative_synonyms": {
+    "about": "explicit, auditable map from common negative words to scene categories (checkpoint 6 label ids). Unseen words are handled by the text-meaning model.",
+    "death": [
+      "death",
+      "dead",
+      "died",
+      "funeral",
+      "cremation",
+      "corpse",
+      "dead body",
+      "morgue",
+      "shraddho",
+      "shraddha",
+      "last rites",
+      "burial",
+      "bereavement",
+      "obituary",
+      "widow"
+    ],
+    "grief": [
+      "mourning",
+      "grief",
+      "bereavement",
+      "sorrow",
+      "crying",
+      "widow",
+      "funeral"
+    ],
+    "illness": [
+      "illness",
+      "sick",
+      "disease",
+      "hospital",
+      "patient",
+      "doctor",
+      "medicine"
+    ],
+    "violence": [
+      "violence",
+      "fight",
+      "crime",
+      "murder",
+      "blood",
+      "accident",
+      "crash",
+      "injury",
+      "attack",
+      "abuse",
+      "beating"
+    ],
+    "eating": [
+      "eating",
+      "food",
+      "meal",
+      "restaurant"
+    ],
+    "celebration": [
+      "party",
+      "celebration",
+      "wedding",
+      "festival"
+    ]
+  },
+  "text_model": "all-MiniLM-L6-v2",
+  "picture_mean": 0.03,
+  "picture_frame_prob": 0.25,
+  "picture_frame_share": 0.15,
+  "scene_present_mean": 0.02,
+  "rank_weights": {
+    "scene_before": 0.7,
+    "scene_after": 0.3,
+    "dominant_activity": 0.6,
+    "picture": 0.4
+  },
+  "no_safe_brand": "house_promo",
+  "text_sensitive_min": 0.25,
+  "text_sensitive_margin": 0.15,
+  "text_ordinary_min": 0.3,
+  "note_sensitive": "death / grief / illness / violence count as present in a scene ONLY if checkpoint 6 found them (it is the authority on sensitivity)."
+}

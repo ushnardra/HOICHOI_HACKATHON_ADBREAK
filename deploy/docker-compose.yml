@@ -1,0 +1,26 @@
+# Runs the app + Caddy (automatic free HTTPS via <ip>.sslip.io). Started by deploy/setup_server.sh.
+services:
+  app:
+    build: ..
+    restart: always
+    env_file: ../.env.server
+    environment:
+      - OMP_NUM_THREADS=${CPUS:-4}
+    volumes:
+      - appdata:/home/user/data
+    expose:
+      - "7860"
+  caddy:
+    image: caddy:2
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddydata:/data
+    depends_on:
+      - app
+volumes:
+  appdata:
+  caddydata:

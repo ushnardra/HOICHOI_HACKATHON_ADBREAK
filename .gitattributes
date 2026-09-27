@@ -1,0 +1,3 @@
+# shell scripts run on Linux servers: always LF line endings
+*.sh text eol=lf
+Dockerfile text eol=lf

@@ -1,0 +1,30 @@
+{
+  "about": "Checkpoint 8 (WHETHER) policy. DEMO / TEAM pacing settings chosen for the hackathon - NOT official Hoichoi numbers (the problem statement names the rules - max breaks per hour, minimum gap, ad load % - but gives no values). Change them here at any time; no code changes needed.",
+  "pacing": {
+    "max_breaks_per_hour": 8,
+    "rounding_for_short_videos": "ceil",
+    "min_gap_sec": 240,
+    "max_ad_load_pct": 10,
+    "break_duration_sec": 30,
+    "no_break_first_sec": 300,
+    "no_break_last_sec": 180,
+    "max_breaks_per_video": null,
+    "max_breaks_per_video_note": "optional override (null = off). When set, it is used instead of max_breaks_per_hour.",
+    "rounding_note": "allowed breaks = ceil(duration_hours x max_breaks_per_hour), then capped by the ad-load rule. Options: ceil | nearest | floor.",
+    "short_video_buffer_pct": 20,
+    "short_video_buffer_note": "no-break buffers at the start/end = min(no_break_first/last_sec, this % of the video) so short clips can still get breaks"
+  },
+  "quality_gate": {
+    "min_where_score": 0.75,
+    "require_sentence_finished": true,
+    "loud_music_limit": 1.2,
+    "loud_music_rule": "reject if any quieter candidate passes the gate, otherwise score x 0.5",
+    "avoid_breaks_next_to_sensitive": "prefer",
+    "avoid_breaks_next_to_sensitive_note": "true = never break next to a death/violence/illness scene; 'prefer' = allowed but the WHERE score is multiplied by sensitive_penalty; false = ignore. Brand safety (checkpoint 9 negative_contexts hard block) is enforced in every mode.",
+    "sensitive_penalty": 0.85
+  },
+  "selection": {
+    "prefer": "highest total WHERE score of the chosen breaks",
+    "tie_break": "spread breaks evenly"
+  }
+}

@@ -1,0 +1,51 @@
+# ---- secrets (API keys) - never commit ----
+.env
+.env.*
+!.env.example
+deploy/Caddyfile
+
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ---- large downloaded / generated files ----
+# (recreate them with the commands in README.md)
+models/
+.cache/
+tools/
+assets/
+work/
+output/
+upload_ready/
+_cpu_test/
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav
+*.upload.*
+*.tgz
+*.log
+
+# ---- editor / OS ----
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---- kept local only (not part of the app) ----
+# tests, the HTML report builders and the HTML reports.
+# The reports are published as Markdown in docs/ instead.
+tests/
+docsgen/
+plan/
+adbreak/scene_eval.py
+
+# ---- local project documents (the workflow PDF is at the top level) ----
+docs/

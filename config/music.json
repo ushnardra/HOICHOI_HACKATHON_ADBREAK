@@ -1,0 +1,49 @@
+{
+  "about": "Song / music-sequence veto for WHERE (checkpoint 7). song strength = music - speech_weight x speech (AudioSet classes); a song sequence = smoothed song strength >= threshold for >= min_song_sec; a break inside one is vetoed unless the music clearly pauses (song strength < pause_below within +/- pause_sec).",
+  "music_classes": [
+    "Music",
+    "Singing",
+    "Song",
+    "Musical instrument",
+    "Vocal music",
+    "Choir",
+    "Chant",
+    "Background music",
+    "Theme music",
+    "Soundtrack music",
+    "Folk music",
+    "Music of Asia",
+    "Carnatic music",
+    "Music of Bollywood",
+    "Pop music",
+    "Guitar",
+    "Flute",
+    "Harmonium",
+    "Tabla",
+    "Sitar",
+    "Violin, fiddle",
+    "Piano",
+    "Keyboard (musical)",
+    "Drum",
+    "Percussion",
+    "Synthesizer",
+    "Humming",
+    "A capella"
+  ],
+  "window_sec": 4.0,
+  "hop_sec": 1.0,
+  "song": {
+    "speech_weight": 0.5,
+    "smooth_windows": 5,
+    "threshold": 0.3,
+    "min_song_sec": 6.0,
+    "pause_sec": 1.0,
+    "pause_below": 0.1,
+    "pause_energy": 0.2,
+    "pause_min_sec": 1.2
+  },
+  "cpu_mode": {
+    "side_sec": 10.0,
+    "note": "free hosting without a GPU: score 10 s before and after each scene change only"
+  }
+}

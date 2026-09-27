@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>contextawareadbreaks · Upload</title>
+<link rel="stylesheet" href="/player/player.css">
+<style>
+.home{max-width:1060px;margin:0 auto;padding:10px 20px 70px}
+.hero{text-align:center;padding:34px 0 10px}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sig)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.02em;margin:14px 0 16px}
+.hero h1 em{color:var(--sig)}
+.hero p{color:var(--muted);font-size:17px;max-width:640px;margin:0 auto}
+.q3{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;margin:40px 0 30px;overflow:hidden}
+.q{padding:20px 22px;border-left:1px solid var(--line)}
+.q:first-child{border-left:0}
+.q .n{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em}
+.q b{display:block;font-size:18px;margin:6px 0 6px;font-weight:600}
+.q div{font-size:14px;color:var(--muted)}
+.drop{position:relative;border:1px solid var(--line2);border-radius:14px;padding:56px 20px;text-align:center;cursor:pointer;
+  background:radial-gradient(600px 200px at 50% 0%,#ffd60a0f,transparent),var(--panel);transition:border-color .15s,background .15s}
+.drop:hover,.drop.over{border-color:var(--sig)}
+.drop .icon{width:54px;height:54px;margin:0 auto 16px;border-radius:50%;background:var(--sig);color:#000;display:grid;place-items:center;font-size:22px;font-weight:700}
+.drop .big{font-size:22px;font-weight:600;letter-spacing:-.01em}
+.drop .muted{margin-top:4px}
+.limits{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin-top:12px;text-align:center}
+.bar2{height:6px;background:var(--panel2);border-radius:999px;overflow:hidden;margin:12px 0 2px}
+.bar2 div{height:100%;width:0;background:var(--sig);transition:width .2s}
+.panel2{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-top:18px;display:none}
+.jobhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.jobhead b{font-size:19px;font-weight:600}
+#jobinfo{font-family:var(--mono);font-size:12px}
+.steps{list-style:none;padding:0;margin:14px 0 0;counter-reset:st}
+.steps li{counter-increment:st;padding:9px 12px;border-radius:6px;display:flex;gap:14px;align-items:center;font-size:14.5px;color:var(--muted)}
+.steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--mono);font-size:11px;width:22px;opacity:.6}
+.steps li .s{width:16px;text-align:center;font-weight:700}
+.steps li .sec{margin-left:auto;font-family:var(--mono);font-size:12px}
+.steps li.running{background:#ffd60a14;color:var(--sig);font-weight:600}
+.steps li.done{color:var(--text)}.steps li.done .s{color:var(--ok)}
+.err{background:#ff5a4f18;border:1px solid #ff5a4f55;color:var(--bad);border-radius:10px;padding:12px 14px;margin:14px 0;display:none}
+.go{display:none;margin-top:18px;align-items:center;gap:18px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--sig);color:#000;font-weight:700;text-decoration:none;border-radius:999px;padding:13px 26px;font-size:15.5px}
+.go a.l{color:var(--muted);font-family:var(--mono);font-size:12.5px}
+.go a.l:hover{color:var(--sig)}
+.recent{margin-top:44px}
+.recent h3{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px;display:flex;gap:10px;align-items:center}
+.recent h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.rc{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line);font-size:14.5px}
+.rc a{color:var(--text);text-decoration:none;font-weight:600}
+.rc a:hover{color:var(--sig)}
+.rc .d{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:10px}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:4px;padding:2px 7px;background:var(--panel2);color:var(--muted)}
+.tag.done{background:#3ddc8420;color:var(--ok)}.tag.error{background:#ff5a4f20;color:var(--bad)}.tag.running{background:#ffd60a20;color:var(--sig)}
+.foot{margin-top:40px;font-size:12.5px;color:var(--muted);text-align:center}
+@media (max-width:760px){.q3{grid-template-columns:1fr}.q{border-left:0;border-top:1px solid var(--line)}.q:first-child{border-top:0}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="/"><i></i><i></i><span class="wm"><span class="wm1">contextaware</span><span class="wm2">adbreaks</span></span></a>
+  <span class="meta">Hoichoi Hackathon · Problem 1</span>
+</header>
+
+<div class="switch"><nav>
+  <a href="/" class="on"><b>01</b> Upload an episode</a>
+  <a href="/watch"><b>02</b> Watch with ad breaks</a>
+</nav></div>
+
+<div class="home">
+  <div class="hero">
+    <div class="kicker">Scene-aware ad insertion</div>
+    <h1>Ad breaks that respect<br>the <em>story</em>.</h1>
+    <p>Upload an episode. We split it into scenes, understand each one, find the pauses where an ad will not hurt the story, and place a safe, matching brand in every break.</p>
+  </div>
+  <div class="q3">
+    <div class="q"><span class="n">01 · WHERE</span><b>Natural pauses</b><div>Only at scene changes. Never mid-sentence, never inside a song.</div></div>
+    <div class="q"><span class="n">02 · WHETHER</span><b>Sensible pacing</b><div>Breaks per hour, a minimum gap and a maximum ad load.</div></div>
+    <div class="q"><span class="n">03 · WHAT</span><b>Safe brand match</b><div>The best brand for the scene. Negative contexts are a hard block.</div></div>
+  </div>
+
+  <div class="drop" id="drop"><div class="icon">↑</div><div class="big">Drop an episode here</div><div class="muted">or click to choose a file</div>
+    <input type="file" id="file" accept="video/*,.mkv" hidden></div>
+  <div class="limits">MP4 · MOV · MKV · WEBM &nbsp;/&nbsp; up to 500 MB and 60 min &nbsp;/&nbsp; a 25-min episode takes about 8–10 min</div>
+
+  <div class="panel2" id="upbox">
+    <div id="uptext" class="muted">Uploading…</div>
+    <div class="bar2"><div id="upbar"></div></div>
+  </div>
+  <div class="err" id="err"></div>
+  <div class="panel2" id="jobbox">
+    <div class="jobhead"><b id="jobtitle">Processing</b><span class="muted" id="jobinfo"></span></div>
+    <ul class="steps" id="steps"></ul>
+    <div class="go" id="go"><a class="btn" id="golink" href="#">▶ Watch with ad breaks</a>
+      <a class="l" id="vmaplink" href="#" target="_blank">VMAP ↗</a>
+      <a class="l" id="dbglink" href="#" target="_blank">debug JSON ↗</a></div>
+  </div>
+
+  <div class="recent"><h3>Processed episodes</h3><div id="recent" class="muted">none yet</div></div>
+  <div class="foot">All brand names are synthetic. Pacing values are demo settings, not official Hoichoi rules. Bengali speech via Groq Whisper large-v3; everything else runs on this server.</div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const fmt = s => s == null ? '' : (s < 60 ? Math.round(s) + ' s' : Math.floor(s / 60) + ' min ' + Math.round(s % 60) + ' s');
+const drop = $('drop'), file = $('file');
+drop.onclick = () => file.click();
+drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+drop.ondragleave = () => drop.classList.remove('over');
+drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) send(e.dataTransfer.files[0]); };
+file.onchange = () => file.files[0] && send(file.files[0]);
+function showError(msg) { $('err').textContent = msg; $('err').style.display = 'block'; }
+
+function send(f) {
+  $('err').style.display = 'none'; $('jobbox').style.display = 'none';
+  $('upbox').style.display = 'block'; $('upbar').style.width = '0';
+  $('uptext').textContent = `Uploading ${f.name} (${(f.size / 1e6).toFixed(0)} MB)…`;
+  const fd = new FormData(); fd.append('file', f);
+  const x = new XMLHttpRequest();
+  x.open('POST', '/api/upload');
+  x.upload.onprogress = e => { if (e.lengthComputable) { $('upbar').style.width = (e.loaded / e.total * 100) + '%'; if (e.loaded === e.total) $('uptext').textContent = 'Uploaded ✓ — checking the video…'; } };
+  x.onload = () => {
+    if (x.status !== 200) { let m = x.responseText; try { m = JSON.parse(m).detail; } catch (e) {} showError('Upload failed: ' + m); $('upbox').style.display = 'none'; return; }
+    $('upbox').style.display = 'none';
+    const r = JSON.parse(x.responseText);
+    history.replaceState(null, '', '/?job=' + r.job);
+    watch(r.job);
+  };
+  x.onerror = () => showError('Upload failed: the connection was interrupted. Please try again.');
+  x.send(fd);
+}
+
+async function watch(jid) {
+  $('jobbox').style.display = 'block';
+  while (true) {
+    let j;
+    try { j = await (await fetch('/api/jobs/' + jid)).json(); } catch (e) { await new Promise(r => setTimeout(r, 3000)); continue; }
+    if (j.detail) { showError('This job is not known any more (the server may have restarted). Please upload again.'); return; }
+    $('jobtitle').textContent = j.state === 'done' ? 'Done. Ad breaks are ready' : j.state === 'error' ? 'Something went wrong' : j.state === 'queued' ? 'Waiting in the queue' : 'Processing ' + j.filename;
+    $('jobinfo').textContent = `${fmt(j.duration_sec)} of video` + (j.state === 'queued' ? ` · ${j.queue_ahead} video(s) ahead` : '') +
+      (j.started ? ` · ${fmt(((j.finished || Date.now() / 1000) - j.started))}` : '');
+    $('steps').innerHTML = j.all_steps.map(s => {
+      const st = j.steps[s.id]; const cls = st ? st.state : 'wait';
+      return `<li class="${cls}"><span class="s">${cls === 'done' ? '✓' : cls === 'running' ? '◌' : '·'}</span>${s.label}<span class="sec">${st && st.seconds != null ? fmt(st.seconds) : ''}</span></li>`;
+    }).join('');
+    if (j.state === 'done') {
+      $('golink').href = '/watch?v=' + j.video; $('vmaplink').href = '/vmap/' + j.video + '.xml'; $('dbglink').href = '/debug/' + j.video + '.json';
+      $('go').style.display = 'flex'; loadRecent(); return;
+    }
+    if (j.state === 'error') { showError(j.error || 'unknown error'); loadRecent(); return; }
+    await new Promise(r => setTimeout(r, 2000));
+  }
+}
+
+async function loadRecent() {
+  const js = await (await fetch('/api/jobs')).json();
+  $('recent').innerHTML = js.length ? js.map(j => `<div class="rc"><span>${j.state === 'done' ? `<a href="/watch?v=${j.video}">${j.filename}</a>` : j.filename}</span>
+    <span><span class="tag ${j.state}">${j.state}</span> <span class="d">${fmt(j.duration_sec)}</span></span></div>`).join('') : 'none yet';
+}
+loadRecent();
+const q = new URLSearchParams(location.search).get('job');
+if (q) watch(q);
+</script>
+</body>
+</html>

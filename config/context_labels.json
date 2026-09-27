@@ -1,0 +1,332 @@
+{
+  "about": "Scene context labels for checkpoint 6. Nothing here is specific to one video. 'prompts' are shown to the SigLIP picture model; 'keywords' are Bengali word STEMS matched against the transcript with a sound-alike key (শ/ষ/স, ন/ণ, ড়/র, long/short vowels, aspirated/plain consonants, chandrabindu and য-ফলা are merged), so 'শ্রাদ্ধ' also matches the ASR spelling 'শ্রাধ্যরে'. Two-word keywords match across neighbouring words.",
+  "groups": {
+    "activity": [
+      {
+        "id": "eating",
+        "prompts": [
+          "people eating a meal",
+          "a plate of rice and curry being eaten",
+          "customers eating food at a restaurant",
+          "a person eating with their hand from a banana leaf"
+        ],
+        "keywords": [
+          "খাবার",
+          "খাও",
+          "খেয়ে",
+          "খেতে",
+          "খাবি",
+          "খাবে",
+          "খেলাম",
+          "ভাত",
+          "খিদ",
+          "পেট ভর"
+        ]
+      },
+      {
+        "id": "cooking",
+        "prompts": [
+          "a woman cooking in a kitchen",
+          "hands grinding spices on a stone",
+          "food being prepared on a stove",
+          "cutting vegetables"
+        ],
+        "keywords": [
+          "রান্না",
+          "রাঁধ",
+          "বাটা",
+          "মশলা",
+          "উনুন",
+          "কড়াই",
+          "ভাজা",
+          "সেদ্ধ",
+          "কচু",
+          "মাছ",
+          "তরকারি",
+          "শিলনোড়া"
+        ]
+      },
+      {
+        "id": "conversation",
+        "prompts": [
+          "two people talking",
+          "a family having a conversation at home",
+          "a person on a video call on a phone"
+        ],
+        "keywords": []
+      },
+      {
+        "id": "celebration",
+        "prompts": [
+          "a wedding ceremony",
+          "people celebrating a festival",
+          "a birthday party",
+          "a happy family celebration"
+        ],
+        "keywords": [
+          "বিয়ে",
+          "বিয়ের",
+          "উৎসব",
+          "পুজো",
+          "পূজা",
+          "জন্মদিন",
+          "আনন্দ",
+          "নেমন্তন্ন"
+        ]
+      },
+      {
+        "id": "travel",
+        "prompts": [
+          "a train on a railway track",
+          "people travelling on a road",
+          "a busy street",
+          "a car or bus journey"
+        ],
+        "keywords": [
+          "ট্রেন",
+          "গাড়ি",
+          "রাস্তা",
+          "স্টেশন",
+          "বাস",
+          "যাত্রা"
+        ]
+      },
+      {
+        "id": "children_playing",
+        "prompts": [
+          "children playing outside",
+          "kids running in a field or forest"
+        ],
+        "keywords": [
+          "খেলা",
+          "খেলতে"
+        ]
+      },
+      {
+        "id": "romance",
+        "prompts": [
+          "a romantic couple",
+          "two lovers holding hands"
+        ],
+        "keywords": [
+          "ভালোবাস",
+          "প্রেম"
+        ]
+      },
+      {
+        "id": "work_business",
+        "prompts": [
+          "people working in an office",
+          "a shopkeeper selling goods",
+          "a person writing in a ledger book",
+          "a vendor selling vegetables"
+        ],
+        "keywords": [
+          "হোটেল",
+          "দোকান",
+          "টাকা",
+          "হিসাব",
+          "খাতা",
+          "ব্যবসা",
+          "অফিস",
+          "কাজ"
+        ]
+      },
+      {
+        "id": "prayer_ritual",
+        "prompts": [
+          "a religious ritual with oil lamps",
+          "a person praying",
+          "an offering of food to a photo of a dead person"
+        ],
+        "keywords": [
+          "পুজো",
+          "প্রার্থনা",
+          "ঠাকুর",
+          "ভগবান",
+          "প্রদীপ",
+          "ধূপ"
+        ]
+      }
+    ],
+    "setting": [
+      {
+        "id": "kitchen",
+        "prompts": [
+          "a traditional kitchen",
+          "an indian kitchen with pots and a clay oven"
+        ]
+      },
+      {
+        "id": "restaurant",
+        "prompts": [
+          "a small eating house with people at tables",
+          "a dining hall"
+        ]
+      },
+      {
+        "id": "home_room",
+        "prompts": [
+          "a bedroom at night",
+          "a living room in an old house"
+        ]
+      },
+      {
+        "id": "courtyard",
+        "prompts": [
+          "the courtyard of an old house",
+          "an old building with arches"
+        ]
+      },
+      {
+        "id": "forest",
+        "prompts": [
+          "a dense forest with big leaves",
+          "a jungle at night"
+        ]
+      },
+      {
+        "id": "street_railway",
+        "prompts": [
+          "a railway track",
+          "a street in a town"
+        ]
+      },
+      {
+        "id": "hospital_morgue",
+        "prompts": [
+          "a hospital room",
+          "a morgue with bodies covered in white sheets",
+          "a police station"
+        ]
+      },
+      {
+        "id": "title_card",
+        "prompts": [
+          "text on a black screen",
+          "a logo on a screen",
+          "film credits",
+          "a red company logo",
+          "a movie title written in decorative letters"
+        ]
+      }
+    ],
+    "mood": [
+      {
+        "id": "happy",
+        "prompts": [
+          "smiling happy people",
+          "a cheerful moment"
+        ]
+      },
+      {
+        "id": "sad",
+        "prompts": [
+          "a crying sad person",
+          "a grieving woman"
+        ]
+      },
+      {
+        "id": "tense",
+        "prompts": [
+          "a scared frightened person",
+          "a tense argument"
+        ]
+      },
+      {
+        "id": "calm",
+        "prompts": [
+          "a calm quiet moment",
+          "a peaceful scene"
+        ]
+      }
+    ],
+    "sensitive": [
+      {
+        "id": "death",
+        "prompts": [
+          "a dead body covered with a white cloth",
+          "a corpse lying on a table",
+          "a funeral",
+          "a dead woman with a cloth tied around her jaw"
+        ],
+        "keywords": [
+          "মৃত",
+          "মারা গে",
+          "মরে গে",
+          "লাশ",
+          "মর্গ",
+          "শ্মশান",
+          "শ্রাদ্ধ",
+          "দাহ",
+          "চিতা",
+          "কাটা পড়",
+          "মড়া"
+        ]
+      },
+      {
+        "id": "grief",
+        "prompts": [
+          "a woman grieving alone in the dark",
+          "people mourning a death",
+          "a person crying over a dead body"
+        ],
+        "keywords": [
+          "কাঁদ",
+          "শোক"
+        ]
+      },
+      {
+        "id": "illness",
+        "prompts": [
+          "a sick person in a hospital bed",
+          "a doctor treating a patient"
+        ],
+        "keywords": [
+          "হাসপাতাল",
+          "ডাক্তার",
+          "অসুখ",
+          "অসুস্থ",
+          "রোগ",
+          "জ্বর",
+          "ওষুধ"
+        ]
+      },
+      {
+        "id": "violence",
+        "prompts": [
+          "people fighting",
+          "a violent attack",
+          "a person being beaten",
+          "blood and injury"
+        ],
+        "keywords": [
+          "মারধর",
+          "মেরে ফেল",
+          "খুন",
+          "রক্ত",
+          "আঘাত"
+        ]
+      }
+    ]
+  },
+  "decision": {
+    "note": "SigLIP scores each label on its own, so useful probabilities are small (0.03-0.4). Values were read from known scenes (see checkpoint6.html).",
+    "picture_sensitive_mean": 0.03,
+    "weak_signs": [
+      "grief",
+      "sad",
+      "prayer_ritual"
+    ],
+    "weak_sign_mean": 0.03,
+    "weak_death_mean": 0.015,
+    "mourning_carry_sec": 600,
+    "words_window_sec": 10.0,
+    "sound_is_supporting_only": true,
+    "picture_frame_prob": 0.25,
+    "picture_frame_share": 0.15,
+    "sandwich_max_sec": 90,
+    "title_card_mean": 0.05,
+    "activity_min_mean": 0.01
+  }
+}

@@ -1,0 +1,28 @@
+# contextawareadbreaks - context-aware ad breaks. Python 3.11.
+#
+# PyTorch: install it FIRST from the index that matches your machine, then this file:
+#   CPU only : pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+#   NVIDIA   : pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+#   then     : pip install -r requirements.txt
+torch==2.6.0
+torchaudio==2.6.0
+
+# models + video / audio
+numpy==2.4.6
+opencv-python-headless==5.0.0.93
+transformers==5.17.0
+accelerate==1.15.0
+tokenizers==0.23.2
+safetensors==0.8.0
+sentencepiece==0.2.2
+protobuf==7.36.2
+huggingface_hub==1.33.0
+silero-vad==6.2.3
+onnxruntime==1.30.0
+pillow==12.3.0
+
+# Groq speech API + web app
+httpx==0.28.1
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
